@@ -8,7 +8,12 @@ function GalleryList({ gallery }) {
         <div className="responsive">
           <div className="gallery">
             <a target="_blank" href={item.path}>
-              <img src={item.path} alt={item.description} />
+              <img
+                src={item.path}
+                alt={item.description}
+                width="600"
+                height="400"
+              />
             </a>
             <div className="likes">
               <button>❤️</button>
