@@ -1,4 +1,4 @@
-function GalleryItem({ item }) {
+function GalleryItem({ item, addLike }) {
   return (
     <div className="responsive">
       <div className="gallery">
@@ -11,7 +11,9 @@ function GalleryItem({ item }) {
           />
         </a>
         <div className="likes">
-          <button>❤️</button>
+          <button onClick={addLike} data-id={item.id}>
+            ❤️
+          </button>
           <p>{item.likes} people love this!</p>
         </div>
       </div>

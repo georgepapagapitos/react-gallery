@@ -23,10 +23,24 @@ function App() {
       });
   };
 
+  const addLike = (event) => {
+    const itemId = event.target.dataset.id;
+    console.log(itemId);
+    axios
+      .put(`/gallery/like/${itemId}`)
+      .then((response) => {
+        console.log('in addLike', response);
+        getGallery();
+      })
+      .catch((error) => {
+        console.log('error in addLike', error);
+      });
+  };
+
   return (
     <div className="App">
       <Header />
-      <GalleryList gallery={gallery} />
+      <GalleryList gallery={gallery} addLike={addLike} />
     </div>
   );
 }
