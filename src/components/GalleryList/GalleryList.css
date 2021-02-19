@@ -19,6 +19,7 @@ div.gallery img {
 div.likes {
   padding: 15px;
   text-align: center;
+  background-color: #dbe2ef;
 }
 
 * {
