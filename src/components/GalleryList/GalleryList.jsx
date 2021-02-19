@@ -1,28 +1,14 @@
 import './GalleryList.css';
+import GalleryItem from '../GalleryItem/GalleryItem';
 
 function GalleryList({ gallery }) {
   console.log('in galleryList', gallery);
   return (
     <>
       {gallery.map((item) => (
-        <div className="responsive">
-          <div className="gallery">
-            <a target="_blank" href={item.path}>
-              <img
-                src={item.path}
-                alt={item.description}
-                width="600"
-                height="400"
-              />
-            </a>
-            <div className="likes">
-              <button>❤️</button>
-              <p>{item.likes} people love this!</p>
-            </div>
-          </div>
-        </div>
+        <GalleryItem key={item.id} item={item} />
       ))}
-      <div class="clearfix"></div>
+      <div className="clearfix"></div>
     </>
   );
 }
