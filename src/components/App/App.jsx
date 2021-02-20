@@ -40,7 +40,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <GalleryList gallery={gallery} addLike={addLike} />
+      <GalleryList
+        gallery={gallery}
+        addLike={addLike}
+      />
     </div>
   );
 }

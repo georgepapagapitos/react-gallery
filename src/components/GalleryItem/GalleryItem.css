@@ -3,22 +3,22 @@ Taken from w3 schools
 https://www.w3schools.com/css/css_image_gallery.asp 
 */
 
-div.gallery {
+div.gallery-item {
+  text-align: center;
   border: 1px solid #ccc;
 }
 
-div.gallery:hover {
+div.gallery-item:hover {
   border: 1px solid #777;
 }
 
-div.gallery img {
+div.gallery-item img {
   width: 100%;
   height: auto;
 }
 
 div.like-section {
   padding: 10px;
-  text-align: center;
   background-color: #dbe2ef;
 }
 
@@ -27,6 +27,7 @@ div.like-section {
 }
 
 .responsive {
+  margin: 0.5rem;
   padding: 0 6px;
   float: left;
   width: 24.99999%;
