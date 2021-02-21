@@ -3,9 +3,12 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import Header from '../Header/Header';
 import GalleryList from '../GalleryList/GalleryList';
+import AddImageForm from '../AddImageForm/AddImageForm';
 
 function App() {
   let [gallery, setGallery] = useState([]);
+  let [newImageURL, setNewImageURL] = useState('');
+  let [newImageDesc, setNewImageDesc] = useState('');
 
   useEffect(() => {
     getGallery();
@@ -22,6 +25,23 @@ function App() {
         console.log('error in getGallery', error);
       });
   };
+
+  const addImage = (event) => {
+    event.preventDefault();
+    console.log('new url', newImageURL);
+    console.log('new desc', newImageDesc);
+    axios
+    .post('/gallery', {
+      path: newImageURL,
+      description: newImageDesc
+    })
+    .then(response => {
+      console.log('imaged added', response);
+      getGallery();
+      setNewImageURL('');
+      setNewImageDesc('');
+    })
+  }
 
   const addLike = (event) => {
     const itemId = event.target.dataset.id;
@@ -40,6 +60,13 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <AddImageForm 
+        addImage={addImage}
+        newImageURL={newImageURL}
+        setNewImageURL={setNewImageURL}
+        newImageDesc={newImageDesc}
+        setNewImageDesc={setNewImageDesc}
+        />
       <GalleryList
         gallery={gallery}
         addLike={addLike}
