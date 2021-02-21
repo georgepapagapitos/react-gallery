@@ -17,6 +17,10 @@ div.gallery-item img {
   height: auto;
 }
 
+div.item-description {
+  padding: 3rem;
+}
+
 div.like-section {
   padding: 10px;
   background-color: #dbe2ef;
