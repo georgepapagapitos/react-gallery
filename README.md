@@ -12,7 +12,7 @@ the user and sends that data to a local database, and then displays the image in
 
 ## Screen Shot
 
-(public/images/screenshot.png)
+[Screenshot](public/images/screenshot.png)
 
 ## Prerequisites
 
