@@ -6,7 +6,8 @@ CREATE TABLE images (
 );
 
 INSERT INTO images (path, description)
-VALUES ('https://picsum.photos/150', 'Random photo'),
+VALUES 
+('https://picsum.photos/150', 'Random photo'),
 ('https://picsum.photos/150', 'Random photo'),
 ('https://picsum.photos/150', 'Random photo'),
 ('https://picsum.photos/150', 'Random photo'),
