@@ -23,7 +23,7 @@ function AddImageForm({addImage, newImageURL, setNewImageURL, newImageDesc, setN
             value={newImageDesc}
           />
         </label>
-        <button className="btn-add"type="submit">Add Image</button>
+        <button className="btn-add"type="submit">➕</button>
       </form>
     </div>
   )
