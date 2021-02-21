@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import swal from 'sweetalert';
 import './App.css';
 import Header from '../Header/Header';
 import GalleryList from '../GalleryList/GalleryList';
@@ -58,18 +59,35 @@ function App() {
   };
 
   const deleteImage = (event) => {
-    const imageId = event.target.dataset.id;
-    console.log('deleting', imageId);
-    axios
-      .delete(`/gallery/${imageId}`)
-      .then(response => {
-        console.log('deleted img with id:', imageId);
-        getGallery();
-      })
-      .catch(error => {
-        console.log('error deleting', error);
-        alert('could not delete img with id:', imageId);
-      });
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this image!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        swal("Your image has been deleted!", {
+          icon: "success",
+        });
+        const imageId = event.target.dataset.id;
+        console.log('deleting', imageId);
+        axios
+        .delete(`/gallery/${imageId}`)
+        .then(response => {
+          console.log('deleted img with id:', imageId);
+          getGallery();
+        })
+        .catch(error => {
+          console.log('error deleting', error);
+          alert('could not delete img with id:', imageId);
+        });
+      } else {
+        swal("Your image is safe!");
+      }
+    });
+    
   }
 
   return (
