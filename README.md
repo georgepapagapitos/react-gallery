@@ -12,7 +12,7 @@ the user and sends that data to a local database, and then displays the image in
 
 ## Screen Shot
 
-[screenshot](public/images/screenshot.png)
+(public/images/screenshot.png)
 
 ## Prerequisites
 
@@ -24,10 +24,10 @@ the user and sends that data to a local database, and then displays the image in
 
 1. Create a database named 'react_gallery'
 2. Queries in database.sql are set up to create images table + a default image
-3. Run npm install
-4. Run npm run server
-5. Run npm run client
-6. npm run client will open a new tab in your default browser
+3. Run `npm install`
+4. Run `npm run server`
+5. Run `npm run client`
+6. `npm run client` will open a new tab in your default browser
 
 ## Usage
 
