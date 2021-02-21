@@ -44,10 +44,10 @@ function App() {
   }
 
   const addLike = (event) => {
-    const itemId = event.target.dataset.id;
-    console.log(itemId);
+    const imageId = event.target.dataset.id;
+    console.log(imageId);
     axios
-      .put(`/gallery/like/${itemId}`)
+      .put(`/gallery/like/${imageId}`)
       .then((response) => {
         console.log('in addLike', response);
         getGallery();
@@ -56,6 +56,21 @@ function App() {
         console.log('error in addLike', error);
       });
   };
+
+  const deleteImage = (event) => {
+    const imageId = event.target.dataset.id;
+    console.log('deleting', imageId);
+    axios
+      .delete(`/gallery/${imageId}`)
+      .then(response => {
+        console.log('deleted img with id:', imageId);
+        getGallery();
+      })
+      .catch(error => {
+        console.log('error deleting', error);
+        alert('could not delete img with id:', imageId);
+      });
+  }
 
   return (
     <div className="App">
@@ -70,6 +85,7 @@ function App() {
       <GalleryList
         gallery={gallery}
         addLike={addLike}
+        deleteImage={deleteImage}
       />
     </div>
   );

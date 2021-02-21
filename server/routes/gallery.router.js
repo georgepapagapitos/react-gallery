@@ -7,7 +7,7 @@ const pool = require('../modules/pool.js');
 // PUT Route
 router.put('/like/:id', (req, res) => {
     const imageId = req.params.id;
-    const queryText = `UPDATE images SET likes=likes+1 WHERE id=$1`
+    const queryText = ` UPDATE images SET likes=likes+1 WHERE id=$1 `;
     pool
     .query(queryText, [imageId])
     .then(result => {
@@ -20,7 +20,7 @@ router.put('/like/:id', (req, res) => {
 
 // GET Route
 router.get('/', (req, res) => {
-  const queryText = ` SELECT * FROM "images" ORDER BY id ASC`
+  const queryText = ` SELECT * FROM "images" ORDER BY id ASC `;
   pool
   .query(queryText)
   .then(result => {
@@ -35,7 +35,7 @@ router.get('/', (req, res) => {
 
 // POST Route
 router.post('/', (req, res) => {
-  const queryText = ` INSERT INTO images (path, description) VALUES($1, $2) `
+  const queryText = ` INSERT INTO images (path, description) VALUES($1, $2) `;
   const imageItem = req.body;
   pool
   .query(queryText, [imageItem.path, imageItem.description])
@@ -46,6 +46,20 @@ router.post('/', (req, res) => {
     console.log('error in POST', error);
     res.sendStatus(500);
   })
-})
+}) // END POST Route
+
+router.delete('/:id', (req, res) => {
+  const queryText = ` DELETE FROM images WHERE id=$1 `;
+  pool
+  .query(queryText, [req.params.id])
+  .then(result => {
+    console.log('DELETED', req.params.id);
+    res.sendStatus(200);
+  })
+  .catch(error => {
+    console.log('error in DELETE', error);
+    res.sendStatus(500);
+  });
+});
 
 module.exports = router;

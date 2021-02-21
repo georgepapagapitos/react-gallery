@@ -1,7 +1,7 @@
 import './GalleryItem.css';
 import {useState} from 'react';
 
-function GalleryItem({ item, addLike }) {
+function GalleryItem({ item, addLike, deleteImage }) {
 
   let [imageToggle, setImageToggle] = useState(true);
 
@@ -21,9 +21,10 @@ function GalleryItem({ item, addLike }) {
           }
         </div>
         <div className="like-section">
-          <button onClick={addLike} data-id={item.id}>
+          <button className="btn-add" onClick={addLike} data-id={item.id}>
             ❤️
           </button>
+          <button className="btn-delete" onClick={deleteImage} data-id={item.id}>❌</button>
           <p>{item.likes} people love this!</p>
         </div>
       </div>
