@@ -30,7 +30,7 @@ const galleryItems = [
     likes: 0,
   },
   {
-    id: 5,
+    id: 6,
     path: 'https://picsum.photos/150',
     description: 'Random photo',
     likes: 0,
