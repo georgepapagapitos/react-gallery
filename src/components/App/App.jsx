@@ -6,6 +6,7 @@ import GalleryList from '../GalleryList/GalleryList';
 
 function App() {
   let [gallery, setGallery] = useState([]);
+  let [toggleImage, setToggleImage] = useState(true);
 
   useEffect(() => {
     getGallery();
@@ -37,12 +38,18 @@ function App() {
       });
   };
 
+  const handleClick = (event) => {
+    setToggleImage(!toggleImage)
+  }
+
   return (
     <div className="App">
       <Header />
       <GalleryList
         gallery={gallery}
         addLike={addLike}
+        handleClick={handleClick}
+        toggleImage={toggleImage}
       />
     </div>
   );
