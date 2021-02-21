@@ -21,9 +21,13 @@ div.item-description {
   padding: 3rem;
 }
 
-div.like-section {
+div.btn-section {
   padding: 10px;
   background-color: #dbe2ef;
+}
+
+.btn-like {
+  margin-right: 10rem
 }
 
 * {

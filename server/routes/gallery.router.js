@@ -7,7 +7,8 @@ const pool = require('../modules/pool.js');
 // PUT Route
 router.put('/like/:id', (req, res) => {
     const imageId = req.params.id;
-    const queryText = ` UPDATE images SET likes=likes+1 WHERE id=$1 `;
+    console.log('adding like to img with id of:', imageId);
+    const queryText = ` UPDATE "images" SET "likes"=likes+1 WHERE "id"=$1 `;
     pool
     .query(queryText, [imageId])
     .then(result => {

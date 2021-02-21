@@ -20,12 +20,12 @@ function GalleryItem({ item, addLike, deleteImage }) {
             <div data-id={item.id} className="item-description"> {item.description} </div>
           }
         </div>
-        <div className="like-section">
-          <button className="btn-add" onClick={addLike} data-id={item.id}>
+        <div className="btn-section">
+          <button className="btn-like" onClick={addLike} data-id={item.id}>
             ❤️
           </button>
           <button className="btn-delete" onClick={deleteImage} data-id={item.id}>❌</button>
-          <p>{item.likes} people love this!</p>
+          {item.likes === 1 ? <p>{item.likes} person loves this!</p> : <p>{item.likes} people love this!</p>}
         </div>
       </div>
     </div>
