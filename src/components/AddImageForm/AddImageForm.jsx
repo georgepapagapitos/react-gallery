@@ -1,6 +1,8 @@
+import './AddImageForm.css';
+
 function AddImageForm({addImage, newImageURL, setNewImageURL, newImageDesc, setNewImageDesc}) {
   return (
-    <div>
+    <div className="image-form">
       <h2>Add Your Image:</h2>
       <form onSubmit={addImage}>
         <label>URL: 
@@ -21,7 +23,7 @@ function AddImageForm({addImage, newImageURL, setNewImageURL, newImageDesc, setN
             value={newImageDesc}
           />
         </label>
-        <button type="submit">Add Image</button>
+        <button className="btn-add"type="submit">Add Image</button>
       </form>
     </div>
   )

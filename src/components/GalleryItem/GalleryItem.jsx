@@ -16,7 +16,7 @@ function GalleryItem({ item, addLike }) {
         <div className="image-section" onClick={handleClick} data-id={item.id}>
           {
             imageToggle ? 
-            <img src={item.path} alt={item.description} data-id={item.id}/> : 
+            <img src={item.path} alt={item.description} data-id={item.id} /> : 
             <div data-id={item.id} className="item-description"> {item.description} </div>
           }
         </div>
