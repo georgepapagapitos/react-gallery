@@ -87,7 +87,6 @@ function App() {
         swal("Your image is safe!");
       }
     });
-    
   }
 
   return (
