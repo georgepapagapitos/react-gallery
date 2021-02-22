@@ -1,11 +1,13 @@
 import './GalleryItem.css';
 import {useState} from 'react';
+import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 function GalleryItem({ item, addLike, deleteImage }) {
 
   let [imageToggle, setImageToggle] = useState(true);
 
-  const handleClick = (event) => {
+  const toggleImage = (event) => {
     console.log('clicked', event.target.dataset.id);
     setImageToggle(!imageToggle);
   }
@@ -13,7 +15,7 @@ function GalleryItem({ item, addLike, deleteImage }) {
   return (
     <div className="responsive">
       <div className="gallery-item">
-        <div className="image-section" onClick={handleClick} data-id={item.id}>
+        <div className="image-section" onClick={toggleImage} data-id={item.id}>
           {
             imageToggle ? 
             <img src={item.path} alt={item.description} data-id={item.id} /> : 
@@ -21,11 +23,17 @@ function GalleryItem({ item, addLike, deleteImage }) {
           }
         </div>
         <div className="btn-section">
-          <button className="btn-like" onClick={addLike} data-id={item.id}>
+          <Button variant="contained" color="primary" onClick={addLike} data-id={item.id}>
             ❤️ Love
-          </button>
-          <button className="btn-delete" onClick={deleteImage} data-id={item.id}>❌ Delete</button>
-          {item.likes === 1 ? <p>{item.likes} person loves this!</p> : <p>{item.likes} people love this!</p>}
+          </Button>
+          <Button startIcon={<DeleteIcon />} variant="contained" color="secondary" onClick={deleteImage} data-id={item.id}>
+            Delete
+          </Button>
+          {
+            item.likes === 1 ? 
+            <p>{item.likes} person loves this!</p> : 
+            <p>{item.likes} people love this!</p>
+          }
         </div>
       </div>
     </div>
