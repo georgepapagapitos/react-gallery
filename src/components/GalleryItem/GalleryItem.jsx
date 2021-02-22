@@ -22,9 +22,9 @@ function GalleryItem({ item, addLike, deleteImage }) {
         </div>
         <div className="btn-section">
           <button className="btn-like" onClick={addLike} data-id={item.id}>
-            ❤️
+            ❤️ Love
           </button>
-          <button className="btn-delete" onClick={deleteImage} data-id={item.id}>❌</button>
+          <button className="btn-delete" onClick={deleteImage} data-id={item.id}>❌ Delete</button>
           {item.likes === 1 ? <p>{item.likes} person loves this!</p> : <p>{item.likes} people love this!</p>}
         </div>
       </div>
