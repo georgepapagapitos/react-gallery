@@ -45,7 +45,7 @@ function App() {
   }
 
   const addLike = (event) => {
-    const imageId = event.target.dataset.id;
+    const imageId = event.currentTarget.dataset.id;
     console.log(imageId);
     axios
       .put(`/gallery/like/${imageId}`)
@@ -71,6 +71,7 @@ function App() {
         swal("Your image has been deleted!", {
           icon: "success",
         });
+        console.log('delete', event.target);
         const imageId = event.target.dataset.id;
         console.log('deleting', imageId);
         axios
